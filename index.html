@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<!--
+   F-Zero: Maximum Velocity Password Decoder
+   Copyright (C) 2024-present WaluigiBSOD (waluigibsod.github.io)
+   
+   This file is part of F-Zero: Maximum Velocity Password Decoder.
+   
+   F-Zero: Maximum Velocity Password Decoder is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   
+   F-Zero: Maximum Velocity Password Decoder is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program. If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		
+		<title>F-Zero: Maximum Velocity Password Decoder</title>
+	</head>
+	
+	<body>
+		<h1 id="title">Now Loading</h1>
+
+		<h2 id="version" onmouseenter="if (typeof _SetVersionDate === 'function') _SetVersionDate()" onmouseleave="if (typeof _SetVersion === 'function') _SetVersion()">...</h2>
+		
+		<br>
+		
+		<br>
+		
+		<script type="text/javascript" src="js/constants.js"></script>
+		
+		<script type="text/javascript" src="js/flags.js"></script>
+		
+		<script type="text/javascript" src="js/io.js"></script>
+		
+		<script type="text/javascript" src="js/check.js"></script>
+		
+		<script type="text/javascript" src="js/format.js"></script>
+		
+		<script type="text/javascript" src="js/password.js"></script>
+		
+		<script type="text/javascript" src="js/decoder.js"></script>
+		
+		<div align="center" class="main">
+			
+			<input type="text" autocomplete="off" id="code" class="code" size="25" maxlength="20" onclick="if (typeof _ResetInput === 'function') _ResetInput()" oninput="if (typeof _CheckPassword === 'function') _CheckPassword()" value=""></input>
+			<p id="error" class="error"><br>Enter Rankings password</p>
+			
+			<table id="result" class="result" style="display: none;">
+			</table>
+			
+		</div>
+		
+		<script type="text/javascript" src="js/result.js"></script>
+		
+		<div align="center" class="cache" id="cache">
+		</div>
+		
+		<script type="text/javascript" src="js/cache.js"></script>
+		
+		<script type="text/javascript" src="js/info.js"></script>
+	</body>
+</html>
