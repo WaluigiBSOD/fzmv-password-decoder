@@ -6,7 +6,7 @@ A JavaScript-based F-Zero: Maximum Velocity Rankings passwords decoder.
 
 Note: these steps won't work for save files where no record in any track has been set.
 
-1. Open the desired save file
+1. Open the desired save file.
 2. Select Rankings and select the desired cup (works with Championship too).
 3. Select the player's name (won't work with Mixed Rankings).
 4. Select the desired track.
@@ -14,7 +14,7 @@ Note: these steps won't work for save files where no record in any track has bee
 6. If done correctly the track's subtitle will be replaced by a password.
 7. Write down the displayed password.
 8. Open [https://waluigibsod.github.io/fzmv-password-decoder/](https://waluigibsod.github.io/fzmv-password-decoder/).
-9. Enter the password (e.g. ``-+045Q=R=HFLX6Q9HNRC``).
+9. Enter the password (e.g. `-+045Q=R=HFLX6Q9HNRC`).
 10. Read the decoded info.
 
 ## Program

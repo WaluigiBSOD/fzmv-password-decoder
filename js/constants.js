@@ -49,82 +49,102 @@ const RaceTracks = [
 		"Tenth Zone East",			// Title
 		"Snake Circuit"				// Subtitle
 	],
+	
 	[
 		"Beacon Port",				// Title
 		"Crossroad Circuit"			// Subtitle
 	],
+	
 	[
 		"Fire Field",				// Title
 		"Land Mine Circuit"			// Subtitle
 	],
+	
 	[
 		"Cloud Carpet",				// Title
 		"Long Jump Circuit"			// Subtitle
 	],
+	
 	[
 		"Cloud Carpet",				// Title
 		"Icarus Circuit"			// Subtitle
 	],
+	
 	[
 		"Ancient Mesa",				// Title
 		"Skating Circuit"			// Subtitle
 	],
+	
 	[
 		"Bianca City",				// Title
 		"Tightrope Circuit"			// Subtitle
 	],
+	
 	[
 		"Crater Land",				// Title
 		"Loop Circuit"				// Subtitle
 	],
+	
 	[
 		"Stark Farm",				// Title
 		"First Circuit"				// Subtitle
 	],
+	
 	[
 		"Synobazz",					// Title
 		"Explosive Circuit"			// Subtitle
 	],
+	
 	[
 		"Crater Land",				// Title
 		"Skid Zone Circuit"			// Subtitle
 	],
+	
 	[
 		"Bianca City",				// Title
 		"Stretch Circuit"			// Subtitle
 	],
+	
 	[
 		"Empyrean Colony",			// Title
 		"Dash Circuit"				// Subtitle
 	],
+	
 	[
 		"Empyrean Colony",			// Title
 		"Twist Circuit"				// Subtitle
 	],
+	
 	[
 		"Stark Farm",				// Title
 		"Second Circuit"			// Subtitle
 	],
+	
 	[
 		"Ancient Mesa",				// Title
 		"Split Circuit"				// Subtitle
 	],
+	
 	[
 		"Tenth Zone East",			// Title
 		"Plummet Circuit"			// Subtitle
 	],
+	
 	[
 		"Fire Field",				// Title
 		"Warrior Circuit"			// Subtitle
 	],
+	
 	[
 		"Stark Farm",				// Title
 		"Third Circuit"				// Subtitle
 	],
+	
 	[
 		"Bianca City",				// Title
 		"Ultimate Circuit"			// Subtitle
 	],
+	
 	[
 		"Synobazz",					// Title
 		"Championship Circuit"		// Subtitle
