@@ -27,7 +27,7 @@ function _DecodePassword(Password) {
 		
 		var Temporary;
 		
-		var Name;
+		var PlayerName;
 		
 		var TotalTime;
 		
@@ -44,9 +44,9 @@ function _DecodePassword(Password) {
 		
 		_UnscrambleBuffer(PasswordBuffer,ShuffleKey);
 		
-		// Name
+		// Player Name
 		
-		Name = _DecompressName(PasswordBuffer);
+		PlayerName = _DecompressPlayerName(PasswordBuffer);
 		
 		// Total Time
 		
@@ -72,23 +72,23 @@ function _DecodePassword(Password) {
 		TestChecksum &= 0xFF;
 		
 		if (TestChecksum == PasswordBuffer[11]) {
-			// Name
+			// Player Name
 			
 			document.getElementById("name").innerHTML = "";
 			
-			for (var i=0;i<Name.length;i++) {
-				if (PlayerNameAlphabet.indexOf(Name[i]) == -1) {
-					_WriteError("Invalid name");
+			for (var i=0;i<PlayerName.length;i++) {
+				if (PlayerNameAlphabet.indexOf(PlayerName[i]) == -1) {
+					_WriteError("Invalid player name");
 					
 					return;
 				}
 				
-				Name[i] = Name[i].charCodeAt(0);
+				PlayerName[i] = PlayerName[i].charCodeAt(0);
 				
-				if (Name[i] == 32)
-					document.getElementById("name").innerHTML += "<img class=\"name-empty\" src=\"font/" + Name[i] + ".png\">";
+				if (PlayerName[i] == 32)
+					document.getElementById("name").innerHTML += "<img class=\"name-empty\" src=\"font/" + PlayerName[i] + ".png\">";
 				else
-					document.getElementById("name").innerHTML += "<img class=\"name\" src=\"font/" + Name[i] + ".png\">";
+					document.getElementById("name").innerHTML += "<img class=\"name\" src=\"font/" + PlayerName[i] + ".png\">";
 			}
 			
 			// Total Time
@@ -103,6 +103,14 @@ function _DecodePassword(Password) {
 			
 			if (Track >= RaceTracks.length) {
 				_WriteError("Invalid track");
+					
+				return;
+			}
+			
+			// Synobazz (Championship Circuit) cannot be played in Multi-Pak Multiplayer
+			
+			if (Track == RaceTracks.length - 1 && FlagMultiPakMultiplayer) {
+				_WriteError("Synobazz (Championship Circuit) can only be played in single-player mode");
 					
 				return;
 			}

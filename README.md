@@ -2,21 +2,6 @@
 
 A JavaScript-based F-Zero: Maximum Velocity Rankings passwords decoder.
 
-## How to use
-
-Note: these steps won't work for save files where no record in any track has been set.
-
-1. Open the desired save file.
-2. Select Rankings and select the desired cup (works with Championship too).
-3. Select the player's name (won't work with Mixed Rankings).
-4. Select the desired track.
-5. Press in sequence **Up, Right, Right, B, Left, B, Right, A** while holding **L**.
-6. If done correctly the track's subtitle will be replaced by a password.
-7. Write down the displayed password.
-8. Open [https://waluigibsod.github.io/fzmv-password-decoder/](https://waluigibsod.github.io/fzmv-password-decoder/).
-9. Enter the password (e.g. `-+045Q=R=HFLX6Q9HNRC`).
-10. Read the decoded info.
-
 ## Program
 
 It's basically a fork of [Version 1.5.2](https://github.com/WaluigiBSOD/dm64-password-decoder/releases/tag/1.5.2) of [Dr. Mario 64 Password Decoder](https://github.com/WaluigiBSOD/dm64-password-decoder), another tool I wrote. Obviously the decoding algorithm is not the same.
@@ -27,9 +12,20 @@ The original implementations of the password generation and decoding algorithms 
 
 An additional file that was used as reference is `netcard.7z\iqgba.tar\iQue-GBA\cvsroot\FZERO_for_GBA\rasheen\src\p1\ras_game_dat.c`, for converting vehicle IDs to names.
 
+### Obtaining a Password In-Game
+
+These steps won't work for save files where no record in any track has been set.
+
+1. Select the desired save file.
+2. Select Rankings and select the desired cup (works with Championship too).
+3. Select the player's name (won't work with Mixed Rankings).
+4. Select the desired track.
+5. Press in sequence **Up**, **Right**, **Right**, **B**, **Left**, **B**, **Right** and **A** while holding **L**.
+6. If done correctly the track's subtitle will be replaced by a password (will be generated from data belonging to the best time recorded for the selected track).
+
 ## License
 
-The source code is released under the GNU General Public License v 3.0 (see [LICENSE](https://github.com/WaluigiBSOD/fzmv-password-decoder/blob/master/LICENSE) in the root of the repository for a copy of the license and for more information).
+The source code is released under the GNU General Public License v 3.0 (see [`LICENSE`](https://github.com/WaluigiBSOD/fzmv-password-decoder/blob/master/LICENSE) in the root of the repository for a copy of the license and for more information).
 
 ### Disclaimer
 

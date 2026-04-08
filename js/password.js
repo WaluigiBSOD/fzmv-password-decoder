@@ -21,15 +21,15 @@
 function _SwapBit(Buffer, IndexX, IndexY) {
 	// It's "res_xchg_bit" in the leaked source code of the game.
 	
-	var ElementX = Math.floor(IndexX / 8);
-	var BitX = 7 - (IndexX % 8);
+	var ElementX = IndexX >> 3;
+	var BitX = 7 - (IndexX & 0x7);
 	
-	var ElementY = Math.floor(IndexY / 8);
-	var BitY = 7 - (IndexY % 8);
+	var ElementY = IndexY >> 3;
+	var BitY = 7 - (IndexY & 0x7);
 	
 	// A bit swap is performed only if the bits to swap are different.
 	
-	if (ElementX < Buffer.length && ElementY < Buffer.length && ((((Buffer[ElementX] & (1 << BitX)) >> BitX) + ((Buffer[ElementY] & (1 << BitY)) >> BitY)) & 0x1)) {
+	if (ElementX < Buffer.length && ElementY < Buffer.length && (((Buffer[ElementX] & (1 << BitX)) >> BitX) ^ ((Buffer[ElementY] & (1 << BitY)) >> BitY))) {
 		Buffer[ElementX] ^= 1 << BitX;
 		Buffer[ElementY] ^= 1 << BitY;
 	}
@@ -38,8 +38,8 @@ function _SwapBit(Buffer, IndexX, IndexY) {
 function _SetBit(Buffer, Index) {
 	// It's "res_set_bit" in the leaked source code of the game.
 	
-	var Element = Math.floor(Index / 8);
-	var Bit = 7 - (Index % 8);
+	var Element = Index >> 3;
+	var Bit = 7 - (Index & 0x7);
 	
 	if (Element < Buffer.length)
 		Buffer[Element] |= 1 << Bit;
@@ -94,19 +94,19 @@ function _SelfInvertibleScrambleBits(Buffer, Type) {
 		
 		case 0:
 		case 1:
-			j = Math.floor((Buffer.length - 1) * 8 / 2);
+			j = (Buffer.length - 1) << 2;
 			
 			break;
 		case 2:
-			j = Math.floor((Buffer.length - 1) * 8 / 9);
+			j = Math.floor(((Buffer.length - 1) << 3) / 9);
 			
 			break;
 		case 3:
-			j = Math.floor((Buffer.length - 1) * 8 / 8);
+			j = Buffer.length - 1;
 			
 			break;
 		case 4:
-			j = Math.floor((Buffer.length - 1) * 8 / 6);
+			j = Math.floor(((Buffer.length - 1) << 2) / 3);
 			
 			break;
 	}
@@ -115,7 +115,7 @@ function _SelfInvertibleScrambleBits(Buffer, Type) {
 		// The very last element of the password buffer is in plaintext, must not be altered.
 		
 		case 1:
-			k = Math.floor((Buffer.length - 1) * 8  - 1);
+			k = Math.floor(((Buffer.length - 1) << 3)  - 1);
 			
 			break;
 		default:
@@ -291,10 +291,10 @@ function _ExtractShuffleKey(Buffer) {
 	retKEY |= Buffer[ 8] & 0x20;
 	retKEY |= Buffer[10] & 0x10;
 	
-	Buffer[ 0] &= ~0x80;
-	Buffer[ 4] &= ~0x40;
-	Buffer[ 8] &= ~0x20;
-	Buffer[10] &= ~0x10;
+	Buffer[ 0] &= 0x7F;
+	Buffer[ 4] &= 0xBF;
+	Buffer[ 8] &= 0xDF;
+	Buffer[10] &= 0xEF;
 	
 	Buffer[ 0] |= Buffer[12] & 0x80;
 	Buffer[ 4] |= Buffer[12] & 0x40;
@@ -304,7 +304,7 @@ function _ExtractShuffleKey(Buffer) {
 	return (retKEY >> 4) & 0x7;
 }
 
-function _DecompressName(Buffer) {
+function _DecompressPlayerName(Buffer) {
 	// It's "res_name_unpack" in the leaked source code of the game.
 	
 	var retNAME = Array(8);
